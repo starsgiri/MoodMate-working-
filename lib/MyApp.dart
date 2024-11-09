@@ -1,7 +1,5 @@
-// main.dart
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'MoodSliderScreen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return const MaterialApp(
-    debugShowCheckedModeBanner: false, 
-      home: MoodSliderScreen(),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Mood Music App")),
+        body: const Center(child: Text("Welcome to Mood Music")),
+      ),
     );
   }
 }

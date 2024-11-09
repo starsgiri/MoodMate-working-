@@ -1,5 +1,6 @@
 // MoodSliderScreen.dart
 import 'package:flutter/material.dart';
+import 'LanguageDurationScreen.dart';
 
 class MoodSliderScreen extends StatefulWidget {
   const MoodSliderScreen({super.key});
@@ -17,19 +18,10 @@ class _MoodSliderScreenState extends State<MoodSliderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.music_note, color: Colors.white), // Music icon
-            SizedBox(width: 8),
-            Text("Mood Music App"),
-          ],
-        ),
+        title: const Text("Mood Music App"),
         backgroundColor: Colors.deepPurpleAccent,
-        elevation: 5,
       ),
       body: Container(
-        // Gradient background
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blue, Colors.purple],
@@ -41,18 +33,16 @@ class _MoodSliderScreenState extends State<MoodSliderScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Title text
             const Text(
               "Set Your Mood 🎶",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Color.fromARGB(255, 72, 101, 188),
               ),
             ),
             const SizedBox(height: 40),
 
-            // Horizontal emoji list with animated color and size effect
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
@@ -74,7 +64,6 @@ class _MoodSliderScreenState extends State<MoodSliderScreen> {
             ),
             const SizedBox(height: 40),
 
-            // Slider for mood selection with a custom color theme
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                 activeTrackColor: Colors.white,
@@ -96,23 +85,28 @@ class _MoodSliderScreenState extends State<MoodSliderScreen> {
                 },
               ),
             ),
-
             const SizedBox(height: 30),
 
-            // Play music button
-            ElevatedButton.icon(
+            // Confirm Button
+            ElevatedButton(
               onPressed: () {
-                // Add functionality to play music based on mood
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LanguageDurationScreen(
+                      selectedMoodEmoji: moodEmojis[currentMoodIndex],
+                    ),
+                  ),
+                );
               },
-              icon: const Icon(Icons.play_arrow, size: 28),
-              label: const Text("Play Music"),
               style: ElevatedButton.styleFrom(
-                foregroundColor: const Color.fromARGB(255, 148, 65, 65), backgroundColor: const Color.fromARGB(255, 54, 44, 80),
+                foregroundColor: const Color.fromARGB(255, 164, 69, 69), backgroundColor: const Color.fromARGB(255, 118, 85, 210),
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
+              child: const Text("Confirm"),
             ),
           ],
         ),

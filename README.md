@@ -5,7 +5,7 @@ We are using Flutter Dart for frontend development,and Firebase for backend deve
 
 Hacktivators is our team name, 
 The team members as follows
-Adithya Nayak (team lead) 
+Adithya Naik (team lead) 
 Akarsh Kiran Gowda
 Giridharan B
 Deeksha 

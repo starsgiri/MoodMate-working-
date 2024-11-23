@@ -63,6 +63,13 @@ class MoodPage extends StatelessWidget {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/journal');
+        },
+        backgroundColor: Colors.deepPurple,
+        child: Icon(Icons.add),
+      ),
     );
   }
 
